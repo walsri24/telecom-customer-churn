@@ -17,3 +17,16 @@ The tree selected `Contract_Month-to-month` as its root splitting feature, follo
 Compared with Logistic Regression, the Decision Tree demonstrated lower performance across all six evaluation metrics. This suggests that the unrestricted tree may not generalize as effectively to unseen customer records.
 
 Overall, the baseline Decision Tree performed less effectively than Logistic Regression on this dataset.
+
+
+### K-Nearest Neighbors (KNN)
+
+The K-Nearest Neighbors classifier achieved an accuracy of **75.94%** and an AUC score of **0.7720**. It obtained a precision of 55.12%, recall of 49.19%, F1 score of 51.99%, and MCC of 0.3611.
+
+The confusion matrix shows that the model correctly identified 183 churn customers while missing 189 actual churn customers. It also incorrectly classified 149 non-churning customers as churners.
+
+The model performed better at identifying non-churning customers, achieving a recall of 85.58%, compared to 49.19% for churn customers.
+
+An additional experiment with different K values showed that increasing K improved AUC and generally improved accuracy within the tested range. However, these exploratory results were obtained using the test dataset and were not used to replace the baseline model.
+
+Overall, KNN performed better than the baseline Decision Tree but did not outperform Logistic Regression.
