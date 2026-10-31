@@ -43,3 +43,16 @@ The model achieved the highest churn recall among the four baseline classifiers 
 The probability distribution also showed a concentration of predictions near zero and one, suggesting that the model frequently produces extreme probability estimates.
 
 Overall, Gaussian Naive Bayes provides strong churn detection capability but involves a trade-off between recall and precision. Its performance may be useful in scenarios where identifying potential churners is prioritized over minimizing false positives.
+
+
+### Support Vector Machine (SVM)
+
+The Support Vector Machine classifier with an RBF kernel achieved an accuracy of **79.79%** and an AUC score of **0.7833**. It obtained a precision of 66.18%, recall of 48.39%, F1 score of 55.90%, and MCC of 0.4409.
+
+The confusion matrix shows that the model correctly identified 180 churn customers while missing 192 actual churn customers. It incorrectly classified 92 non-churning customers as churners.
+
+The model achieved the highest churn precision among the five baseline classifiers, although its precision was only marginally higher than Logistic Regression. It also correctly identified 941 non-churning customers.
+
+The trained SVM used an RBF kernel with C=1.0 and gamma='scale'. It identified 2,654 support vectors across the training observations.
+
+Overall, SVM demonstrated competitive accuracy and precision but did not outperform Logistic Regression in overall predictive performance.
