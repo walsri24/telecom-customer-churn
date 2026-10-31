@@ -30,3 +30,16 @@ The model performed better at identifying non-churning customers, achieving a re
 An additional experiment with different K values showed that increasing K improved AUC and generally improved accuracy within the tested range. However, these exploratory results were obtained using the test dataset and were not used to replace the baseline model.
 
 Overall, KNN performed better than the baseline Decision Tree but did not outperform Logistic Regression.
+
+
+### Gaussian Naive Bayes
+
+The Gaussian Naive Bayes classifier achieved an accuracy of **68.47%** and an AUC score of **0.8067**. It obtained a precision of 44.88%, recall of 83.60%, F1 score of 58.40%, and MCC of 0.4114.
+
+The confusion matrix shows that the model correctly identified 311 churn customers while missing only 61 actual churn customers. However, it incorrectly classified 382 non-churning customers as churners.
+
+The model achieved the highest churn recall among the four baseline classifiers evaluated so far. Its relatively low precision indicates that a substantial number of customers predicted to churn did not actually churn.
+
+The probability distribution also showed a concentration of predictions near zero and one, suggesting that the model frequently produces extreme probability estimates.
+
+Overall, Gaussian Naive Bayes provides strong churn detection capability but involves a trade-off between recall and precision. Its performance may be useful in scenarios where identifying potential churners is prioritized over minimizing false positives.
