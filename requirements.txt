@@ -1,0 +1,21 @@
+
+# Data manipulation
+numpy>=1.26
+pandas>=2.2
+
+# Machine Learning
+scikit-learn>=1.5
+scipy>=1.13
+joblib>=1.4
+
+# Data visualization
+matplotlib>=3.9
+seaborn>=0.13
+
+# Streamlit application
+streamlit>=1.40
+
+# Jupyter development
+jupyter>=1.1
+ipykernel>=6.29
+
