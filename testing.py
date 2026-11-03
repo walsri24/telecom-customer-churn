@@ -12,7 +12,7 @@ X_test = df.drop(columns=["Churn", "customerID"], errors="ignore")
 y_test = df["Churn"]
 
 # Load Logistic Regression
-model = load_model("Support Vector Machine")
+model = load_model("Hyperparameter Tuned", "Logistic Regression")
 
 # Evaluate
 results = evaluate_model(model, X_test, y_test)
@@ -29,3 +29,17 @@ print(results["confusion_matrix"])
 
 print("\nClassification Report")
 print(pd.DataFrame(results["classification_report"]).T)
+
+
+import joblib
+
+for filename in [
+    "models/logistic_regression_threshold_optimized.joblib",
+    "models/svm_threshold_optimized.joblib",
+    "models/svm_tuned.joblib"
+]:
+    obj = joblib.load(filename)
+
+    print(f"\n{filename}")
+    print("Type:", type(obj))
+    print("Keys:", obj.keys() if isinstance(obj, dict) else "N/A")
