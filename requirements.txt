@@ -1,21 +1,19 @@
-
 # Data manipulation
-numpy>=1.26
-pandas>=2.2
+numpy==2.3.2
+pandas==2.3.2
 
 # Machine Learning
-scikit-learn>=1.5
-scipy>=1.13
-joblib>=1.4
+scikit-learn==1.9.0
+scipy==1.16.1
+joblib==1.5.2
 
 # Data visualization
-matplotlib>=3.9
-seaborn>=0.13
+matplotlib==3.10.6
+seaborn==0.13.2
 
 # Streamlit application
-streamlit>=1.40
+streamlit==1.50.0
 
 # Jupyter development
-jupyter>=1.1
-ipykernel>=6.29
-
+jupyter==1.1.1
+ipykernel==6.30.1
