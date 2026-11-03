@@ -224,6 +224,8 @@ evaluated on the held-out test set with the selected threshold of
 | Threshold | Accuracy | AUC    | Precision | Recall | F1     | MCC    |
 |-----------|----------|--------|-----------|--------|--------|--------|
 | 0.40      | 0.7822   | 0.8245 | 0.5753    | 0.6774 | 0.6222 | 0.4737 |
+
+
 Compared with the SVM probability-based result at threshold 0.50,
 lowering the threshold to 0.40 increased churn recall from 0.5995 to
 0.6774 and F1 from 0.6027 to 0.6222. Precision decreased from 0.6060 to
