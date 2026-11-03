@@ -8,6 +8,34 @@ from src.model_loader import load_model
 from src.evaluation import evaluate_model
 
 
+def compare_models(model_category, X_test, y_test):
+    comparison_results = []
+
+    for model_name in MODEL_CONFIG[model_category].keys():
+
+        model = load_model(model_category, model_name)
+
+        results = evaluate_model(
+            model,
+            X_test,
+            y_test
+        )
+
+        metrics = results["metrics"]
+
+        comparison_results.append({
+            "Model": model_name,
+            "Accuracy": metrics["Accuracy"],
+            "AUC": metrics["AUC"],
+            "Precision": metrics["Precision"],
+            "Recall": metrics["Recall"],
+            "F1 Score": metrics["F1 Score"],
+            "MCC": metrics["MCC"]
+        })
+
+    return pd.DataFrame(comparison_results)
+
+
 # --------------------------------------------------
 # PAGE CONFIGURATION
 # --------------------------------------------------
@@ -280,6 +308,42 @@ if uploaded_file is not None:
                 report_df.round(4),
                 width="stretch"
             )
+            st.divider()
+            st.subheader("7. Model Comparison Results")
+
+            st.markdown(
+                f"Comparing all **{model_category}** models "
+                "on the same uploaded test dataset."
+            )
+
+            comparison_df = compare_models(
+                model_category,
+                X_test,
+                y_test
+            )
+
+            st.dataframe(
+                comparison_df.style.format({
+                    "Accuracy": "{:.4f}",
+                    "AUC": "{:.4f}",
+                    "Precision": "{:.4f}",
+                    "Recall": "{:.4f}",
+                    "F1 Score": "{:.4f}",
+                    "MCC": "{:.4f}"
+                }),
+                width="stretch"
+            )
+
+            # Highlight the best F1 model
+            best_model = comparison_df.loc[
+                comparison_df["F1 Score"].idxmax()
+            ]
+
+            st.success(
+                f"Best model by F1 Score: **{best_model['Model']}** "
+                f"({best_model['F1 Score']:.4f})"
+            )
+
 
     except Exception as e:
 
